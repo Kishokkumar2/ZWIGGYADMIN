@@ -29,7 +29,7 @@ const submit = async(event) => {
         formdata.append("category",(data.category))
         formdata.append("image",image)
        
-        const response  = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/menudata`,formdata)
+        const response  = await axios.post("https://hb-1-3605.onrender.com/menudata",formdata)
         if(response.data.success){
             setData({
                 name:"",
