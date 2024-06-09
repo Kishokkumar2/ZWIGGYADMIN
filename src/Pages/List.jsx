@@ -5,10 +5,10 @@ import { toast } from 'react-toastify'
 
 const List = () => {
   const [list, setList] = useState([])
-  const url="http://localhost:5000"
+  const url=`${process.env.REACT_APP_BACKEND_URL}`
 
   const fetchlist = async () => {
-    const response = await axios.get("http://localhost:5000/list")
+    const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/list`)
    
     if (response.data.success) {
       setList(response.data.data)
@@ -24,7 +24,7 @@ const List = () => {
 
   }, [])
   function  del(id){
-    axios.delete('http://localhost:5000/delete/'+id).then(res => {console.log(res)
+    axios.delete(`${process.env.REACT_APP_BACKEND_URL}/delete/`+id).then(res => {console.log(res)
     window.location.reload()
     toast.success("Food Removerd Successfully")
   
